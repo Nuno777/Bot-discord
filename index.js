@@ -4,22 +4,21 @@ const config = require("./config.json");
 
 client.on("ready", () => {
   console.log(`Online`);
-   client.user.setActivity('!verify');
- });
+  client.user.setActivity('!verify');
+});
 
- client.on("message", async message => {
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-    if(!message.content.startsWith(config.prefix)) return;
+client.on("message", async message => {
+  if (message.author.bot) return;
+  if (message.channel.type === "dm") return;
+  if (!message.content.startsWith(config.prefix)) return;
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
 
-   if(comando==="verify"){
-    const m = await message.channel.send ("Para ficares verificado no servidor clica aqui");
-   }
- });
- 
+  if (comando === "verify") {
+    const m = await message.channel.send("Para ficares verificado no servidor clica aqui");
+  }
+});
 
 /*  client.on('raw', async dados => {
   if(dados.t !== "MESSAGE_REACTION_ADD" && dados.t !== "MESSAGE_REACTION_REMOVE") return
@@ -44,5 +43,5 @@ client.on("ready", () => {
   }
 
  }); */
- 
- client.login(config.token);
+
+client.login(config.token);
