@@ -1,1 +1,1 @@
-# Bot-discord
+# Bot-discord - !verify

@@ -4,7 +4,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
   console.log(`Online`);
-   client.user.setActivity(`• Faz !verify para ficares verificado no servidor •`);
+   client.user.setActivity('!verify');
  });
 
  client.on("message", async message => {
@@ -20,8 +20,8 @@ client.on("ready", () => {
    }
  });
  
-/*
- client.on('raw', async dados => {
+
+/*  client.on('raw', async dados => {
   if(dados.t !== "MESSAGE_REACTION_ADD" && dados.t !== "MESSAGE_REACTION_REMOVE") return
   if(dados.d.message_id != "   ") return
 
@@ -43,6 +43,6 @@ client.on("ready", () => {
     }
   }
 
- });
- */
+ }); */
+ 
  client.login(config.token);
