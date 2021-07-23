@@ -15,6 +15,17 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
 
+  if (comando === "shadow") {
+    const m = await message.channel.send('Ban <@867454541355679754>');
+  }
+
+  if (comando === "berna") {
+    const m = await message.channel.send('Não sei<@317696951711956994>');
+  }
+  if (comando === "gode") {
+    const m = await message.channel.send('Na pista com <@298901961393045514>');
+  }
+
   if (comando === "verify") {
     const m = await message.channel.send("Para ficares verificado no servidor clica aqui");
   }
