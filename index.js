@@ -20,8 +20,9 @@ client.on("message", async message => {
   }
 
   if (comando === "berna") {
-    const m = await message.channel.send('Não sei<@317696951711956994>');
+    const m = await message.channel.send('Não sei <@317696951711956994>');
   }
+  
   if (comando === "gode") {
     const m = await message.channel.send('Na pista com <@298901961393045514>');
   }
