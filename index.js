@@ -4,7 +4,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
   console.log(`Online`);
-  client.user.setActivity('!verify');
+  client.user.setActivity('.verify');
 });
 
 client.on("message", async message => {
@@ -22,9 +22,12 @@ client.on("message", async message => {
   if (comando === "berna") {
     const m = await message.channel.send('Não sei <@317696951711956994>');
   }
-  
+
   if (comando === "gode") {
-    const m = await message.channel.send('Na pista com <@298901961393045514>');
+    //identifica a pessoa com @N7
+    message.reply();
+    //mete só o nome da pessoa que faz o comando
+    const m = await message.channel.send(`${message.author.username}`);
   }
 
   if (comando === "verify") {
