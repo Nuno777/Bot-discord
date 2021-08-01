@@ -2,37 +2,36 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
+const prefix = "-";
+const commands = require("./scripts/commandsReader")(config.prefix);
+console.log(commands);
 client.on("ready", () => {
   console.log(`Online`);
-  client.user.setActivity('.verify');
+  client.user.setActivity('-help');
 });
 
-client.on("message", async message => {
-  if (message.author.bot) return;
-  if (message.channel.type === "dm") return;
-  if (!message.content.startsWith(config.prefix)) return;
+client.on("message", (message) => {
+  if (!message.author.bot && message.guild) {
+    if (config.debug) console.log(`${message.author.username}: ${message.content}`);
+    const args = message.content.split(" ");
+    if (commands[args[0]]) commands[args[0]](client, message);
+  }
+  // if (message.channel.type === "dm") return;
+  // if (!message.content.startsWith(config.prefix)) return;
 
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  /*const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
-
-  if (comando === "shadow") {
-    const m = await message.channel.send('Ban <@867454541355679754>');
-  }
-
-  if (comando === "berna") {
-    const m = await message.channel.send('Não sei <@317696951711956994>');
-  }
 
   if (comando === "gode") {
     //identifica a pessoa com @N7
-    message.reply();
+    message.reply(' exemplo');
     //mete só o nome da pessoa que faz o comando
     const m = await message.channel.send(`${message.author.username}`);
   }
 
   if (comando === "verify") {
     const m = await message.channel.send("Para ficares verificado no servidor clica aqui");
-  }
+  } */
 });
 
 /*  client.on('raw', async dados => {
