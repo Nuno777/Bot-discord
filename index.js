@@ -16,20 +16,19 @@ client.on("message", (message) => {
     const args = message.content.split(" ");
     if (commands[args[0]]) commands[args[0]](client, message);
   }
-  // if (message.channel.type === "dm") return;
-  // if (!message.content.startsWith(config.prefix)) return;
+  if (message.channel.type === "dm") return;
+  if (!message.content.startsWith(config.prefix)) return;
 
-  /*const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
-
-  if (comando === "gode") {
+   if (comando === "gode") {
     //identifica a pessoa com @N7
     message.reply(' exemplo');
     //mete só o nome da pessoa que faz o comando
-    const m = await message.channel.send(`${message.author.username}`);
-  }
+    //const m = await message.channel.send(`${message.author.username}`);
+  } 
 
-  if (comando === "verify") {
+  /* if (comando === "verify") {
     const m = await message.channel.send("Para ficares verificado no servidor clica aqui");
   } */
 });
