@@ -1,3 +1,4 @@
 /config
-/package-lock
-/package
+/node_modules
+package-lock
+package
