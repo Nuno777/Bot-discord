@@ -17,45 +17,22 @@ client.on("message", (message) => {
     const args = message.content.split(" ");
     if (commands[args[0]]) commands[args[0]](client, message);
   }
-  /* if (message.channel.type === "dm") return;
-  if (!message.content.startsWith(config.prefix)) return; */
+  if (message.channel.type === "dm") return;
+  if (!message.content.startsWith(config.prefix)) return;
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
-   if (comando === "gode") {
+  if (comando === "nuno") {
     //identifica a pessoa com @N7
-    message.reply(' exemplo');
+    message.channel.send('Sempre foi GODE');
     //mete só o nome da pessoa que faz o comando
     //const m = await message.channel.send(`${message.author.username}`);
-  } 
+  }
 
   /* if (comando === "verify") {
-    const m = await message.channel.send("Para ficares verificado no servidor clica aqui");
-  } */
+   const m = await message.channel.send("Para ficares verificado no servidor clica aqui");
+   m.edit=(`naosei`);
+ }  */
 });
-
-/*  client.on('raw', async dados => {
-  if(dados.t !== "MESSAGE_REACTION_ADD" && dados.t !== "MESSAGE_REACTION_REMOVE") return
-  if(dados.d.message_id != "   ") return
-
-  let servidor = client.guilds.get("622848894983733298")
-  let membro = servidor.members.get(dados.d.user_id)
-
-    let cargo1 = servidor.roles.get('622857933226508289')
-
-    if(dados.t === "MESSAGE_REACTION_ADD"){
-        if(dados.d.emoji.id === "566966275578789888"){
-            if(membro.roles.has(cargo1)) return
-            membro.addRole(cargo1)
-    }
-  }
-    if(dados.t === "MESSAGE_REACTION_REMOVE"){
-        if(dados.d.emoji.id === "566966275578789888"){
-            if(membro.roles.has(cargo1)) return
-            membro.removeRole(cargo1)
-    }
-  }
-
- }); */
 
 client.login(secrets.secrets.botToken);
