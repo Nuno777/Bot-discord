@@ -12,12 +12,12 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
   if (!message.author.bot && message.guild) {
-    if (config.debug) console.log(`${message.author.username}: ${message.content}`);
+    if (config.debug) console.log(`${message.author.tag}: ${message.content}`);
     const args = message.content.split(" ");
     if (commands[args[0]]) commands[args[0]](client, message);
   }
-  if (message.channel.type === "dm") return;
-  if (!message.content.startsWith(config.prefix)) return;
+  /* if (message.channel.type === "dm") return;
+  if (!message.content.startsWith(config.prefix)) return; */
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
