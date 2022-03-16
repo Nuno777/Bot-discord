@@ -6,4 +6,5 @@ module.exports = async (client, message, args, prefix) => {
   const fetchmessage = await channel.fetchWebhooks();
   await channel.bulkDelete(fetchmessage).catch(error => console.log(error.stack));
   message.reply("Clean");
+
 }
