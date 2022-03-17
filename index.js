@@ -20,7 +20,7 @@ client.on("message", (message) => {
   if (message.channel.type === "dm") return;
   if (!message.content.startsWith(config.prefix)) return;
   if (!message.content.toLowerCase().startsWith(config.prefix.toLowerCase())) return;
-  
+
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
   if (comando === "nuno") {
